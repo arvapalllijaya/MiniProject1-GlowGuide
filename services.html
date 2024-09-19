@@ -1,0 +1,36 @@
+<!-- main/templates/main/services.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="{% static 'main/images/logo.png' %}" alt="GlowGuide Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="auth-links">
+                <a href="{% url 'login' %}" class="btn">Login</a>
+                <a href="{% url 'signup' %}" class="btn">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="services">
+            <h1>Our Services</h1>
+            <p>Our team of experts will help you get the best skincare routine for your skin type. We have a team of experts who have years of experience in the field of skincare and beauty. We will help you get the best skincare routine for your skin type. Our team of experts will help you get the best skincare routine for your skin type. We have a team of experts who have years of experience in the field of skincare and beauty. We will help you get the best skincare routine for your skin type.</p>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!-- main/templates/main/result.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Skin Type Result</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/result.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Skin Type</h1>
+        <p>Your skin type is: {{ skin_type }}</p>
+        <a href="{% url 'home_remedies' skin_type=skin_type %}">View Home Remedies</a>
+        <a href="{% url 'product_recommendations' skin_type=skin_type %}">View Product Recommendations</a>
+    </div>
+</body>
+</html>

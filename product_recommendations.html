@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Recommendations</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/css/product_recommendations.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Product Recommendations for {{ skin_type }} Skin</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Cleansers</h2>
+            <div class="product-list">
+                {% for product in products.cleansers %}
+                <div class="product-item">
+                    <img src="{% static product.image %}" alt="{{ product.name }}">
+                    <h3>{{ product.name }}</h3>
+                    <a href="{{ product.link }}" target="_blank">View Product</a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        <section>
+            <h2>Moisturizers</h2>
+            <div class="product-list">
+                {% for product in products.moisturizers %}
+                <div class="product-item">
+                    <img src="{% static product.image %}" alt="{{ product.name }}">
+                    <h3>{{ product.name }}</h3>
+                    <a href="{{ product.link }}" target="_blank">View Product</a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        <section>
+            <h2>Toners</h2>
+            <div class="product-list">
+                {% for product in products.toners %}
+                <div class="product-item">
+                    <img src="{% static product.image %}" alt="{{ product.name }}">
+                    <h3>{{ product.name }}</h3>
+                    <a href="{{ product.link }}" target="_blank">View Product</a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        <section>
+            <h2>Serums</h2>
+            <div class="product-list">
+                {% for product in products.serums %}
+                <div class="product-item">
+                    <img src="{% static product.image %}" alt="{{ product.name }}">
+                    <h3>{{ product.name }}</h3>
+                    <a href="{{ product.link }}" target="_blank">View Product</a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        <section>
+            <h2>Sunscreens</h2>
+            <div class="product-list">
+                {% for product in products.sunscreens %}
+                <div class="product-item">
+                    <img src="{% static product.image %}" alt="{{ product.name }}">
+                    <h3>{{ product.name }}</h3>
+                    <a href="{{ product.link }}" target="_blank">View Product</a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        <section>
+            <h2>Lip Balms</h2>
+            <div class="product-list">
+                {% for product in products.lipbalms %}
+                <div class="product-item">
+                    <img src="{% static product.image %}" alt="{{ product.name }}">
+                    <h3>{{ product.name }}</h3>
+                    <a href="{{ product.link }}" target="_blank">View Product</a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Recommendations for Acne-Prone Skin</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/css/recommendations.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Product Recommendations for Acne-Prone Skin</h1>
+    </header>
+    <main>
+        {% for category, items in products.items %}
+        <section class="{{ category }}">
+            <h2>{{ category|capfirst }}</h2>
+            <div class="product-list">
+                {% for product in items %}
+                <div class="product-item">
+                    <a href="{{ product.link }}" target="_blank">
+                        <img src="{% static product.image %}" alt="{{ product.name }}">
+                        <p>{{ product.name }}</p>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endfor %}
+    </main>
+</body>
+</html>

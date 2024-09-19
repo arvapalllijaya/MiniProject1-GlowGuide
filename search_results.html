@@ -1,0 +1,34 @@
+<!-- main/templates/main/search_results.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results for "{{ query }}"</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/search_results.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Search Results for "{{ query }}"</h1>
+        <div class="search-container">
+            <form action="{% url 'search_remedies' %}" method="get">
+                <input type="text" name="query" placeholder="Search for skin issues or remedies..." value="{{ query }}">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        {% if results %}
+            {% for key, remedies in results.items %}
+                <div class="result-category">
+                    <h2>{{ key|capfirst }}</h2>
+                    <ul>
+                        {% for remedy in remedies %}
+                            <li>{{ remedy }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No results found for "{{ query }}". Please try a different search term.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

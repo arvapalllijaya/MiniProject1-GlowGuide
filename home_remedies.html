@@ -1,0 +1,78 @@
+<!-- main/templates/main/home_remedies.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Remedies for {{ skin_type }} Skin</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/home_remedies.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Home Remedies for {{ skin_type }} Skin</h1>
+        <div class="search-container">
+            <form action="{% url 'search_remedies' %}" method="get">
+                <input type="text" name="query" placeholder="Search for skin issues or remedies...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <div class="remedies">
+            {% if skin_type == "Dry" %}
+                <h2>For Dry Skin</h2><br>
+                <ul>
+                    <li><b>Oatmeal bath:</b><br> Adding powdered oatmeal to a bath or using creams contain oatmeal may help to relieve dry skin</li><br><br>
+                    <li><b>Coconut Oil:</b><br> Apply a thin layer of coconut oil before bedtime to moisturize and nourish dry skin.</li><br><br>
+                    <li><b>Sunflower seed oil:</b><br>Appling sunflower oil can improve hydration</li><br><br>
+                    <li><b>Aloe Vera:</b><br> Apply fresh aloe vera gel to soothe and hydrate the skin.</li><br><br>
+                    <li><b>Honey and Olive Oil:</b><br> Mix honey with olive oil and apply it to the skin. Leave it on for 10-15 minutes before rinsing off.</li>
+                </ul>
+            {% elif skin_type == "Oily" %}
+                <h2>For Oily Skin</h2><br>
+                <ul>
+                    <li><b>Use turmeric and sandalwood:</b><br> A turmeric-based face mask with orange juice is beneficial for oily skin. The high vitamin C content of citrus fruits, such as oranges, helps in brightening and rejuvenating the skin as well as treating acne.</li><br><br>
+                    <li><b>Jojoba oil:</b><br>Jojoba oil can reduce oilyskin,acne and other skin problems</li><br><br>
+                    <li><b>Tomatoes and Sugar:</b><br>Tomatoes conatin salicylic acid which help absorb excess skin oils and unclog pores</li><br><br>
+                    <li><b>Lemon Juice and Honey:</b> <br>Mix equal parts lemon juice and honey. Apply to the skin, leave for 10-15 minutes, then rinse.</li><br><br>
+                    <li><b>Aloe Vera Gel:</b><br> Apply aloe vera gel to help control oil production.</li><br><br>
+                    <li><b>Clay Masks:</b><br> Use a clay mask (like bentonite or kaolin) once a week to absorb excess oil.</li>
+                </ul>
+            {% elif skin_type == "Combination" %}
+                <h2>For Combination Skin</h2><br>
+                <ul>
+                    <li><b>Cucumber juice and Honey:</b><br>Cucumber juice mixed with honey is perfect for combination skin.</li><br><br>
+                    <li><b>Egg white and Lemon:</b><br>Egg whites combined with lemon juice makes an incredible natural remedy to manage combination skin.</li><br><br>
+                    <li><b>Clay Masks:</b><br> Use clay masks on the T-zone to control oil and moisturize other areas.</li><br><br>
+                    <li><b>Green Tea Toner:</b><br> Use green tea as a natural toner to balance the skin.</li><br><br>
+                    <li><b>Exfoliate:</b><br> Gently exfoliate once a week to remove dead skin cells.</li>
+                </ul>
+            {% elif skin_type == "Normal" %}
+                <h2>For Normal Skin</h2><br>
+                <ul>
+                    <li><b>Coconut Oil:</b><br>Coconut oil is good for the skin as it contains Vitamin A.</li><br><br>
+                    <li><b>Papaya and Milk:</b><br>By mixing papaya with milk and sugar we can get glowing skin.</li><br><br>
+                    <li><b>Honey Mask:</b><br> Apply honey on your face for 10-15 minutes to keep your skin hydrated.</li><br><br>
+                    <li><b>Aloe Vera Gel:</b><br> Use aloe vera gel to maintain skin balance and hydration.</li><br><br>
+                    <li><b>Rose Water:</b><br> Use rose water as a toner to keep your skin fresh.</li>
+                </ul>
+            {% elif skin_type == "Sensitive" %}
+                <h2>For Sensitive Skin</h2><br>
+                <ul>
+                    <li><b>Coconut Oil, Indian Gooseberry And Curry Leaves Mask:</b> <br>Add coconut oil in a bowl and put it on the stove on a low flame. Add the remaining ingredients and cook for 10 minutes. Once everything has been cooked well, strain the liquid and store it in a bottle. Once it has cooled down, apply the mix to your face. Keep it on overnight and wash off in the morning..</li><br><br>
+                    <li><b>Cocoa, Honey, Milk, And Coffee Mask:</b><br> Combine the ingredients and mix thoroughly. Apply on the face and neck. Leave for 10 minutes. Rinse with lukewarm water..</li><br><br>
+                    <li><b>Aloe Vera Gel:</b> <br>Apply aloe vera gel to soothe and calm the skin.</li><br><br>
+                    <li><b>Chamomile Tea:</b><br> Use chamomile tea as a toner to reduce redness and irritation.</li>
+                </ul>
+            {% elif skin_type == "Acne-Prone" %}
+                <h2>For Acne-Prone Skin</h2><br>
+                <ul>
+                    <li>Apply apple cider vinegar:<br>Apple cider vinegar is made by fermenting apple cider, or the unfiltered juice from pressed apples.
+                        Like other vinegars, research has noted its ability to fight many types of bacteriaTrusted Source and fungiTrusted Source..</li><br><br>
+                        <li>Make a honey and cinnamon mask:<br>While the anti-inflammatory and antibacterial properties of honey and cinnamon may reduce acne, more research is needed..</li><br><br>
+                    <li>Tea Tree Oil:<br> Dilute a few drops of tea tree oil with a carrier oil (like jojoba oil) and apply to the affected areas.</li><br><br>
+                    <li>Honey and Cinnamon Mask:<br> Mix honey with cinnamon powder and apply to the face. Leave it on for 10-15 minutes before rinsing.</li><br><br>
+                    <li>Apple Cider Vinegar:<br> Dilute apple cider vinegar with water (1:3 ratio) and use as a toner.</li>
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

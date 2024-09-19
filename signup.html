@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowGuide - Sign Up</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/css/signup.css' %}">
+    <script>
+        function validateForm() {
+            // Validate First Name and Last Name
+            const nameRegex = /^[a-zA-Z]+$/;
+            const firstName = document.getElementById('first_name').value;
+            const lastName = document.getElementById('last_name').value;
+            if (!nameRegex.test(firstName)) {
+                alert('First Name should contain only alphabets.');
+                return false;
+            }
+            if (!nameRegex.test(lastName)) {
+                alert('Last Name should contain only alphabets.');
+                return false;
+            }
+
+            // Validate Mobile Number
+            const mobileNumber = document.getElementById('mobile_number').value;
+            const mobileRegex = /^[0-9]{10}$/;
+            if (!mobileRegex.test(mobileNumber)) {
+                alert('Mobile Number should be exactly 10 digits.');
+                return false;
+            }
+
+            // Validate Password and Confirm Password
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+            const passwordRegex = /^[a-zA-Z0-9]+$/;
+            if (!passwordRegex.test(password)) {
+                alert('Password should be alphanumeric.');
+                return false;
+            }
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="{% static 'main/images/glowguide-image.jpeg' %}" alt="GlowGuide Logo" class="logo">
+        </div>
+        <div class="form-container">
+            <h2>Create an Account</h2>
+            <form method="post" onsubmit="return validateForm()">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input type="text" id="first_name" name="first_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" id="last_name" name="last_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="mobile_number">Mobile Number</label>
+                    <input type="tel" id="mobile_number" name="mobile_number" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <div class="gender-options">
+                        <label><input type="radio" name="gender" value="male" required> Male</label>
+                        <label><input type="radio" name="gender" value="female" required> Female</label>
+                        <label><input type="radio" name="gender" value="others" required> Others</label>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+            <p class="login-link">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+        </div>
+    </div>
+</body>
+</html>
